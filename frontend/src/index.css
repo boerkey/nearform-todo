@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  margin: 1rem auto;
+  max-width: 40rem;
+  padding: 0 1rem;
+}
+
+button {
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+.error {
+  color: #b00020;
+  margin-top: 0.5rem;
+}
+
+.banner-error {
+  background: #ffebee;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}

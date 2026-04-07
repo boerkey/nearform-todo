@@ -1,0 +1,36 @@
+---
+description: Project Development Guidelines
+globs: ["**/*"]
+alwaysApply: true
+---
+
+# todo Development Guidelines
+
+Auto-generated from all feature plans. Last updated: 2026-04-07
+
+## Active Technologies
+
+- Node.js 20 LTS, TypeScript 5.x + Backend — Fastify, Prisma, Zod (or equivalent request validation); Frontend — React 19, Vite; E2E — Playwright (001-fullstack-todo-app)
+
+## Project Structure
+
+```text
+backend/
+frontend/
+e2e/
+```
+
+## Commands
+
+npm test && npm run lint
+
+## Code Style
+
+Node.js 20 LTS, TypeScript 5.x: Follow standard conventions
+
+## Recent Changes
+
+- 001-fullstack-todo-app: Added Node.js 20 LTS, TypeScript 5.x + Backend — Fastify, Prisma, Zod (or equivalent request validation); Frontend — React 19, Vite; E2E — Playwright
+
+<!-- MANUAL ADDITIONS START -->
+<!-- MANUAL ADDITIONS END -->

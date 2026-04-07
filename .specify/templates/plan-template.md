@@ -31,7 +31,18 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+Per `.specify/memory/constitution.md` (Todo Constitution):
+
+- [ ] **Spec-driven**: Feature has `spec.md` and this plan under `specs/<feature-branch>/`; workflow
+  order respected (spec → plan → tasks before implementation).
+- [ ] **Scope**: `spec.md` defines a single coherent scope; any expansion is reflected in spec and
+  plan before further design or code.
+- [ ] **Traceability**: Planned work maps requirements to future `tasks.md` entries with concrete
+  paths or deliverables.
+- [ ] **Testing**: Test expectations from the spec are reflected in the plan (what to automate or
+  verify manually).
+- [ ] **Simplicity**: No unjustified complexity; Complexity Tracking below filled if principles are
+  violated.
 
 ## Project Structure
 

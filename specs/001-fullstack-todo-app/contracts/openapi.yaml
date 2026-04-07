@@ -1,0 +1,142 @@
+openapi: 3.1.0
+info:
+  title: Todo API
+  version: 1.0.0
+  description: HTTP JSON API for full-stack todo demo (no authentication).
+
+servers:
+  - url: http://localhost:3001
+    description: Local backend (default from quickstart)
+
+paths:
+  /todos:
+    get:
+      summary: List all todos
+      operationId: listTodos
+      responses:
+        "200":
+          description: Ordered by createdAt descending
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Todo"
+    post:
+      summary: Create a todo
+      operationId: createTodo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateTodoRequest"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Todo"
+        "400":
+          $ref: "#/components/responses/Error"
+
+  /todos/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+    patch:
+      summary: Update completion status
+      operationId: updateTodo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PatchTodoRequest"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Todo"
+        "400":
+          $ref: "#/components/responses/Error"
+        "404":
+          $ref: "#/components/responses/Error"
+    delete:
+      summary: Delete a todo
+      operationId: deleteTodo
+      responses:
+        "204":
+          description: Deleted (no body)
+        "404":
+          description: Todo id not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorBody"
+
+components:
+  schemas:
+    Todo:
+      type: object
+      required: [id, title, completed, createdAt, updatedAt]
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+          minLength: 1
+          maxLength: 255
+        completed:
+          type: boolean
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+
+    CreateTodoRequest:
+      type: object
+      required: [title]
+      properties:
+        title:
+          type: string
+          minLength: 1
+          maxLength: 255
+
+    PatchTodoRequest:
+      type: object
+      required: [completed]
+      properties:
+        completed:
+          type: boolean
+
+    ErrorBody:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: object
+          required: [code, message]
+          properties:
+            code:
+              type: string
+              examples: [VALIDATION_ERROR, NOT_FOUND]
+            message:
+              type: string
+
+  responses:
+    Error:
+      description: Client or server error
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorBody"
