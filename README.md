@@ -2,6 +2,8 @@
 
 Monorepo: **backend** (Fastify + Prisma + PostgreSQL), **frontend** (Vite + React), **e2e** (Playwright).
 
+**Product requirements:** see **[PRD.md](PRD.md)** (Product Requirements Document).
+
 ## Prerequisites
 
 - Node.js 20+
