@@ -2,7 +2,7 @@
 
 Monorepo: **backend** (Fastify + Prisma + PostgreSQL), **frontend** (Vite + React), **e2e** (Playwright).
 
-**Product requirements:** see **[PRD.md](PRD.md)** (Product Requirements Document).
+**Documents:** **[PRD.md](PRD.md)** (Product Requirements) · **[ARCHITECTURE.md](ARCHITECTURE.md)** (Architecture Document).
 
 ## Prerequisites
 
